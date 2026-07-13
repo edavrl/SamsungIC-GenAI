@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eda Vural | Artificial Intelligence & Research Engineer</title>
+    <style>
+        :root {
+            --bg-main: #060b16;
+            --bg-card: rgba(13, 22, 44, 0.7);
+            --border-color: rgba(0, 240, 255, 0.15);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --cyber-cyan: #00f0ff;
+            --samsung-blue: #21409a;
+            --titanium: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', '-apple-system', 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Profesyonel İnce Grid Yapısı */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Üst Kontrol Paneli (Navigation) */
+        nav {
+            width: 100%;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            background: rgba(6, 11, 22, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-logo {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        .nav-status {
+            font-size: 0.8rem;
+            color: var(--cyber-cyan);
+            background: rgba(0, 240, 255, 0.08);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+
+        /* Gelişmiş Hero Alanı */
+        header {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10rem 2rem 4rem 2rem;
+            position: relative;
+        }
+
+        .runtime-badge {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--cyber-cyan);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #ffffff 40%, var(--titanium) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p.role-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        header p.role-title span {
+            color: var(--cyber-cyan);
+        }
+
+        .abstract-line {
+            width: 60px;
+            height: 2px;
+            background: var(--cyber-cyan);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px var(--cyber-cyan);
+        }
+
+        .hero-desc {
+            max-width: 700px;
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+
+        /* Portfolyo Grid Yapısı */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .architecture-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+        }
+
+        /* Endüstriyel Siber Kart Tasarımı */
+        .framework-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .framework-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.05);
+        }
+
+        .framework-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .meta-visual {
+            flex: 1;
+            min-width: 48%;
+            position: relative;
+            background: #02050a;
+        }
+
+        .meta-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: all 0.6s ease;
+        }
+
+        .framework-card:hover .meta-visual img {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        .panel-content {
+            flex: 1;
+            padding: 4.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .panel-content .step-num {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--cyber-cyan);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .panel-content h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .panel-content p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Teknik Detay Blokları */
+        .data-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            background: rgba(4, 8, 16, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .matrix-cell {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .matrix-cell strong {
+            color: var(--cyber-cyan);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Yetkinlik Kapsülleri */
+        .stack-group {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .stack-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--titanium);
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .framework-card:hover .stack-pill {
+            border-color: rgba(0, 240, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* Profesyonel Footer */
+        footer {
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-top: 8rem;
+            border-top: 1px solid var(--border-color);
+            background: #03060d;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .directory-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .directory-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .directory-links a:hover {
+            color: var(--cyber-cyan);
+            border-color: var(--cyber-cyan);
+            background: rgba(0, 240, 255, 0.02);
+        }
+
+        /* Üst Düzey Responsive Entegrasyonu */
+        @media (max-width: 1024px) {
+            header h1 { font-size: 3.8rem; }
+            .framework-card, .framework-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .meta-visual {
+                width: 100%;
+                height: 320px;
+            }
+            .panel-content {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">EV / PORTFOLIO.CORE</div>
+        <div class="nav-status">SYSTEM NODE: ACTIVE</div>
+    </nav>
+
+    <header>
+        <div class="runtime-badge">Neural Framework v2.0</div>
+        <h1>EDA VURAL</h1>
+        <p class="role-title">Artificial Intelligence <span>&</span> Software Engineer</p>
+        <div class="abstract-line"></div>
+        <p class="hero-desc">Architecting deep learning model pipelines, high-fidelity computer vision deployments, and highly scalable enterprise backend infrastructures.</p>
+    </header>
+
+    <main>
+        <div class="architecture-grid">
+
+            <section class="framework-card">
+                <div class="meta-visual">
+                    <img src="who_i_am.png" alt="Eda Vural - System Profile">
+                </div>
+                <div class="panel-content">
+                    <div class="step-num">01 / IDENTITY</div>
+                    <h2>Who I Am</h2>
+                    <p>I am a highly driven Software Engineering graduate from OSTİM Technical University, concluding my degree with a distinct 3.82/4.00 GPA as a High Honor student and ranking 2nd in the department. Refusing to settle for standard algorithmic frameworks, I dedicated my academic lifecycle to structuring scalable models in Deep Learning and complex artificial intelligence nodes, working cleanly at the intersection of data science and enterprise software deployment.</p>
+                    
+                    <div class="data-matrix">
+                        <div class="matrix-cell"><strong>Institution</strong>OSTİM Technical University</div>
+                        <div class="matrix-cell"><strong>Department Rank</strong>Ranked 2nd Overall</div>
+                        <div class="matrix-cell"><strong>Cumulative GPA</strong>3.82 / 4.00</div>
+                        <div class="matrix-cell"><strong>Honor Status</strong>High Honor Graduate</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="framework-card">
+                <div class="meta-visual">
+                    <img src="my_skills.png" alt="Technical Stack Optimization">
+                </div>
+                <div class="panel-content">
+                    <div class="step-num">02 / CORE CAPABILITIES</div>
+                    <h2>My Skills</h2>
+                    <p>My technical foundation is engineered to support end-to-end AI lifecycles and robust server architectures. I specialize in designing hybrid deep neural networks for predictive analysis, creating vision pipelines capable of real-time pose estimation, and deploying modern microservices capable of handling complex cloud communications.</p>
+                    
+                    <div class="data-matrix">
+                        <div class="matrix-cell"><strong>Deep Learning</strong>LSTM, CNN (TÜBİTAK 2209-A)</div>
+                        <div class="matrix-cell"><strong>Computer Vision</strong>YOLOv8 Pose, ResNeXt Mosaics</div>
+                        <div class="matrix-cell"><strong>Backend Ecosystem</strong>Java Spring Boot, Microservices</div>
+                        <div class="matrix-cell"><strong>Environments</strong>Python, Unity, C#, PostgreSQL</div>
+                    </div>
+
+                    <div class="stack-group">
+                        <span class="stack-pill">ResNeXt + LSTM Hybrid Model</span>
+                        <span class="stack-pill">YOLOv8 Real-Time Tracking</span>
+                        <span class="stack-pill">Spring Security & AI Cloud</span>
+                        <span class="stack-pill">Local NLP Enterprise Chatbots</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="framework-card">
+                <div class="meta-visual">
+                    <img src="future_goal.png" alt="Future Intelligence Horizon">
+                </div>
+                <div class="panel-content">
+                    <div class="step-num">03 / FUTURE HORIZONS</div>
+                    <h2>My Future Goal</h2>
+                    <p>My progressive career vector is locked on stepping into a Senior Artificial Intelligence and Data Research Engineer role, engineering mission-critical automated pipelines for large-scale enterprise infrastructures. I am actively calibrating my research focus toward a specialized Master's Program in Artificial Intelligence and Data Engineering, aiming to pioneer breakthrough applications in machine learning and safe generative systems globally.</p>
+                    
+                    <div class="data-matrix">
+                        <div class="matrix-cell"><strong>Target Specialization</strong>AI Research Scientist</div>
+                        <div class="matrix-cell"><strong>Academic Continuity</strong>Master's in AI & Data Engineering</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Eda Vural. Engineered via Vibe Coding for Samsung Innovation Campus Module.</p>
+        <div class="directory-links">
+            <a href="https://tr.linkedin.com/in/eda-vural-9ab391253" target="_blank">LINKEDIN</a>
+            <a href="https://github.com/edavrl" target="_blank">GITHUB</a>
+            <a href="mailto:edavural@hotmail.com">E-MAIL</a>
+        </div>
+    </footer>
+
+</body>
+</html>
